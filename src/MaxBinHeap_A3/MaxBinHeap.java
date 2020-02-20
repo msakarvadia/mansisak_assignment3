@@ -60,21 +60,23 @@ public class MaxBinHeap implements Heap_Interface {
 		for (int i = 1; i < size; i++) {
 			this.array[i] = elements[i - 1];
 		}
-		System.out.println(array[1]);
-		//Bubbled down for every element
+		// System.out.println(array[1]);
+
+		// Bubbled down for every element
 		for (int i = size / 2; i > 0; i--) {
-			for (int child_idx = i * 2; i <= size; i *= 2) {
-				if (array[child_idx * 2] > array[child_idx + 1]) {
-					if (array[i] < array[child_idx * 2]) {
+			for (int child_idx = i * 2; child_idx <= size; child_idx *= 2) {
+				System.out.println("child_idx: " + child_idx);
+				if (array[child_idx] > array[child_idx + 1]) {
+					if (array[i] < array[child_idx] & array[child_idx] != Double.NaN) {
 						double temp = array[i];
-						array[i] = array[child_idx * 2];
-						array[child_idx * 2] = temp;
+						array[i] = array[child_idx];
+						array[child_idx] = temp;
 					}
 				} else {
-					if (array[i] < array[child_idx * 2 + 1]) {
+					if (array[i] < array[child_idx + 1] & array[child_idx + 1] != Double.NaN) {
 						double temp = array[i];
-						array[i] = array[child_idx * 2 + 1];
-						array[child_idx * 2 + 1] = temp;
+						array[i] = array[child_idx + 1];
+						array[child_idx + 1] = temp;
 					}
 				}
 
@@ -87,6 +89,7 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public double[] sort(double[] elements) {
 		// TODO Auto-generated method stub
+		System.out.println("Entering sort function");
 		return null;
 	}
 

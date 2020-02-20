@@ -24,10 +24,11 @@ public class MaxBinHeap_Playground {
     
     MaxBinHeap mbh = new MaxBinHeap();
     double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5 };
-    double[] sorted = mbh.sort(collection);
+    //TODO: undo this comment:
+    //double[] sorted = mbh.sort(collection);
     printSortCollection(collection);
     printHeap(mbh.getHeap(), mbh.size());
-    printArray(sorted);
+   // printArray(sorted);
   }
 
   public static double[] charsToDoubles(char[] chars) {
