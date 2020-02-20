@@ -25,6 +25,7 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void insert(double element) {
 		// TODO Auto-generated method stub
+		size++;
 
 	}
 
@@ -53,7 +54,33 @@ public class MaxBinHeap implements Heap_Interface {
 
 	@Override
 	public void build(double[] elements) {
-		// TODO Auto-generated method stub
+		// TODO HOW DO DEAL WITH DUPLICATES
+		size += elements.length;
+		// Put all elements in array in arbitrary order
+		for (int i = 1; i < size; i++) {
+			this.array[i] = elements[i - 1];
+		}
+		System.out.println(array[1]);
+		//Bubbled down for every element
+		for (int i = size / 2; i > 0; i--) {
+			for (int child_idx = i * 2; i <= size; i *= 2) {
+				if (array[child_idx * 2] > array[child_idx + 1]) {
+					if (array[i] < array[child_idx * 2]) {
+						double temp = array[i];
+						array[i] = array[child_idx * 2];
+						array[child_idx * 2] = temp;
+					}
+				} else {
+					if (array[i] < array[child_idx * 2 + 1]) {
+						double temp = array[i];
+						array[i] = array[child_idx * 2 + 1];
+						array[child_idx * 2 + 1] = temp;
+					}
+				}
+
+			}
+
+		}
 
 	}
 
@@ -63,5 +90,4 @@ public class MaxBinHeap implements Heap_Interface {
 		return null;
 	}
 
-	// add your method implementstions
 }

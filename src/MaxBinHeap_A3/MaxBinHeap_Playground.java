@@ -3,7 +3,7 @@ package MaxBinHeap_A3;
 public class MaxBinHeap_Playground {
   public static void main(String[] args) {
     // Add more tests as methods and call them here!!
-    TestBuild();
+	TestBuild();
     System.out.println();
     TestSort();
   }
