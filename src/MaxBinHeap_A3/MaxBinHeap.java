@@ -25,12 +25,11 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void insert(double element) {
 		// TODO Auto-generated method stub
-		this.array[size+1] = element;
+		this.array[size + 1] = element;
 		size++;
 		for (int i = size / 2; i > 0; i--) {
 			max_heapify(this.array, i);
 		}
-		
 
 	}
 
@@ -39,13 +38,11 @@ public class MaxBinHeap implements Heap_Interface {
 		if (size == 0) {
 			return;
 		}
-		this.array[1]=this.array[size-1];
-		this.array[size-1]=Double.NaN;
-		size--;
+		this.array[1] = this.array[size];
+		this.size--;
 		for (int i = size / 2; i > 0; i--) {
 			max_heapify(this.array, i);
 		}
-
 	}
 
 	@Override
@@ -57,7 +54,6 @@ public class MaxBinHeap implements Heap_Interface {
 	public void clear() {
 		Arrays.fill(this.array, Double.NaN);
 		size = 0;
-
 	}
 
 	@Override
@@ -69,6 +65,7 @@ public class MaxBinHeap implements Heap_Interface {
 	public void build(double[] elements) {
 		// TODO HOW DO DEAL WITH DUPLICATES
 		size += elements.length;
+		//System.out.println("size: "+size);
 		// Put all elements in array in arbitrary order
 		for (int i = 1; i < size + 1; i++) {
 			this.array[i] = elements[i - 1];
@@ -104,8 +101,16 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public double[] sort(double[] elements) {
 		// TODO Auto-generated method stub
-		System.out.println("Entering sort function");
-		return null;
+		MaxBinHeap mbh = new MaxBinHeap();
+		mbh.build(elements);
+		double[] sorted = new double[mbh.size()];
+		for(int i = mbh.size()-1; i>=0;i--) {
+			sorted[i]=mbh.getMax();
+			System.out.println("* "+sorted[i]);
+			mbh.delMax();
+		}
+		System.out.println("sorted:");
+		return sorted;
 	}
 
 }
