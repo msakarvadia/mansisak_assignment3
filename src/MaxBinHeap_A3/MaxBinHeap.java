@@ -25,12 +25,20 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void insert(double element) {
 		// TODO Auto-generated method stub
+		this.array[size+1] = element;
 		size++;
+		for (int i = size / 2; i > 0; i--) {
+			max_heapify(this.array, i);
+		}
+		
 
 	}
 
 	@Override
 	public void delMax() {
+		if (size == 0) {
+			return;
+		}
 		// TODO Auto-generated method stub
 
 	}
@@ -57,35 +65,33 @@ public class MaxBinHeap implements Heap_Interface {
 		// TODO HOW DO DEAL WITH DUPLICATES
 		size += elements.length;
 		// Put all elements in array in arbitrary order
-		for (int i = 1; i < size+1; i++) {
+		for (int i = 1; i < size + 1; i++) {
 			this.array[i] = elements[i - 1];
 		}
-		
+
 		// Bubbled down for every element
 		for (int i = size / 2; i > 0; i--) {
-			max_heapify(this.array,i);
-
+			max_heapify(this.array, i);
 		}
 
 	}
-	
+
 	public void max_heapify(double elements[], int i) {
-		int left_child = i*2;
-		int right_child = i*2+1;
+		int left_child = i * 2;
+		int right_child = i * 2 + 1;
 		int largest;
-		if(left_child<=this.size & elements[left_child]>elements[right_child]) {
+		if (left_child <= this.size & elements[left_child] > elements[right_child]) {
 			largest = left_child;
-		}
-		else {
+		} else {
 			largest = i;
 		}
-		if(right_child <= this.size & elements[right_child]>elements[largest]) {
+		if (right_child <= this.size & elements[right_child] > elements[largest]) {
 			largest = right_child;
 		}
-		if(largest != i) {
+		if (largest != i) {
 			double temp = elements[i];
 			elements[i] = elements[largest];
-			elements[largest]=temp;
+			elements[largest] = temp;
 			max_heapify(elements, largest);
 		}
 	}
