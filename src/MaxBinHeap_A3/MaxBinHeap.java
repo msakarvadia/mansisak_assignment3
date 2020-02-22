@@ -39,7 +39,12 @@ public class MaxBinHeap implements Heap_Interface {
 		if (size == 0) {
 			return;
 		}
-		// TODO Auto-generated method stub
+		this.array[1]=this.array[size-1];
+		this.array[size-1]=Double.NaN;
+		size--;
+		for (int i = size / 2; i > 0; i--) {
+			max_heapify(this.array, i);
+		}
 
 	}
 
