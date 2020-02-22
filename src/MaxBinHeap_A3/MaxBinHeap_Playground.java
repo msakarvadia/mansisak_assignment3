@@ -23,7 +23,7 @@ public class MaxBinHeap_Playground {
 		// it into heapsort function. Then print collection and sorted array.
 
 		MaxBinHeap mbh = new MaxBinHeap();
-		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5 };
+		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9 };
 		// TODO: undo this comment:
 		double[] sorted = mbh.sort(collection);
 		printSortCollection(collection);

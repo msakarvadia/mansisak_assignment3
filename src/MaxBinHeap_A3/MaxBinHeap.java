@@ -102,15 +102,16 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public double[] sort(double[] elements) {
 		// TODO Auto-generated method stub
+		this.build(elements);
 		MaxBinHeap mbh = new MaxBinHeap();
 		mbh.build(elements);
 		double[] sorted = new double[mbh.size()];
 		for (int i = mbh.size() - 1; i >= 0; i--) {
 			sorted[i] = mbh.getMax();
-			System.out.println("* " + sorted[i]);
+			//System.out.println("* " + sorted[i]);
 			mbh.delMax();
 		}
-		System.out.println("sorted:");
+		//System.out.println("sorted:");
 		return sorted;
 	}
 
