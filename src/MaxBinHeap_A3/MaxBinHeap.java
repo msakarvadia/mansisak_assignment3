@@ -57,33 +57,37 @@ public class MaxBinHeap implements Heap_Interface {
 		// TODO HOW DO DEAL WITH DUPLICATES
 		size += elements.length;
 		// Put all elements in array in arbitrary order
-		for (int i = 1; i < size; i++) {
+		for (int i = 1; i < size+1; i++) {
 			this.array[i] = elements[i - 1];
 		}
-		// System.out.println(array[1]);
-
+		
 		// Bubbled down for every element
 		for (int i = size / 2; i > 0; i--) {
-			for (int child_idx = i * 2; child_idx <= size; child_idx *= 2) {
-				System.out.println("child_idx: " + child_idx);
-				if (array[child_idx] > array[child_idx + 1]) {
-					if (array[i] < array[child_idx] & array[child_idx] != Double.NaN) {
-						double temp = array[i];
-						array[i] = array[child_idx];
-						array[child_idx] = temp;
-					}
-				} else {
-					if (array[i] < array[child_idx + 1] & array[child_idx + 1] != Double.NaN) {
-						double temp = array[i];
-						array[i] = array[child_idx + 1];
-						array[child_idx + 1] = temp;
-					}
-				}
-
-			}
+			max_heapify(this.array,i);
 
 		}
 
+	}
+	
+	public void max_heapify(double elements[], int i) {
+		int left_child = i*2;
+		int right_child = i*2+1;
+		int largest;
+		if(left_child<=this.size & elements[left_child]>elements[right_child]) {
+			largest = left_child;
+		}
+		else {
+			largest = i;
+		}
+		if(right_child <= this.size & elements[right_child]>elements[largest]) {
+			largest = right_child;
+		}
+		if(largest != i) {
+			double temp = elements[i];
+			elements[i] = elements[largest];
+			elements[largest]=temp;
+			max_heapify(elements, largest);
+		}
 	}
 
 	@Override
