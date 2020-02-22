@@ -63,6 +63,7 @@ public class MaxBinHeap implements Heap_Interface {
 
 	@Override
 	public void build(double[] elements) {
+		this.clear();
 		// TODO HOW DO DEAL WITH DUPLICATES
 		this.size += elements.length;
 		// System.out.println("size: "+size);
