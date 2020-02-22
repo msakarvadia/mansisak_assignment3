@@ -4,24 +4,15 @@ public class MaxBinHeap_Playground {
 	public static void main(String[] args) {
 		// Add more tests as methods and call them here!!
 		TestBuild();
-		System.out.println();
-
-		MaxBinHeap mbh = new MaxBinHeap();
-		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5, 9 };
-		mbh.build(collection);
-
-		System.out.println(mbh.getMax());
-		mbh.delMax();
-		printHeap(mbh.getHeap(), mbh.size());
-
-		// TestSort();
+		System.out.println();		
+		TestSort();
 	}
 
 	public static void TestBuild() {
 		// constructs a new maxbinheap, constructs an array of double,
 		// passes it into build function. Then print collection and heap.
 		MaxBinHeap mbh = new MaxBinHeap();
-		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5, 9 };
+		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9 };
 		mbh.build(collection);
 		printHeapCollection(collection);
 		printHeap(mbh.getHeap(), mbh.size());

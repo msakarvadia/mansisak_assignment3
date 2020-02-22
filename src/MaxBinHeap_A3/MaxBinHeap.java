@@ -64,14 +64,15 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void build(double[] elements) {
 		// TODO HOW DO DEAL WITH DUPLICATES
-		size += elements.length;
-		//System.out.println("size: "+size);
+		this.size += elements.length;
+		// System.out.println("size: "+size);
 		// Put all elements in array in arbitrary order
 		for (int i = 1; i < size + 1; i++) {
 			this.array[i] = elements[i - 1];
 		}
 
 		// Bubbled down for every element
+
 		for (int i = size / 2; i > 0; i--) {
 			max_heapify(this.array, i);
 		}
@@ -82,7 +83,7 @@ public class MaxBinHeap implements Heap_Interface {
 		int left_child = i * 2;
 		int right_child = i * 2 + 1;
 		int largest;
-		if (left_child <= this.size & elements[left_child] > elements[right_child]) {
+		if (left_child <= this.size & elements[left_child] > elements[i]) {
 			largest = left_child;
 		} else {
 			largest = i;
@@ -104,9 +105,9 @@ public class MaxBinHeap implements Heap_Interface {
 		MaxBinHeap mbh = new MaxBinHeap();
 		mbh.build(elements);
 		double[] sorted = new double[mbh.size()];
-		for(int i = mbh.size()-1; i>=0;i--) {
-			sorted[i]=mbh.getMax();
-			System.out.println("* "+sorted[i]);
+		for (int i = mbh.size() - 1; i >= 0; i--) {
+			sorted[i] = mbh.getMax();
+			System.out.println("* " + sorted[i]);
 			mbh.delMax();
 		}
 		System.out.println("sorted:");
