@@ -84,6 +84,7 @@ public class MaxBinHeap implements Heap_Interface {
 		int left_child = i * 2;
 		int right_child = i * 2 + 1;
 		int largest;
+		//CHECK STUFF for duplicates - parents greater than or equal too child
 		if (left_child <= this.size & elements[left_child] > elements[i]) {
 			largest = left_child;
 		} else {
