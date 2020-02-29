@@ -12,7 +12,7 @@ public class MaxBinHeap_Playground {
 		// constructs a new maxbinheap, constructs an array of double,
 		// passes it into build function. Then print collection and heap.
 		MaxBinHeap mbh = new MaxBinHeap();
-		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9 };
+		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9,0};
 		mbh.build(collection);
 		printHeapCollection(collection);
 		printHeap(mbh.getHeap(), mbh.size());
@@ -23,7 +23,7 @@ public class MaxBinHeap_Playground {
 		// it into heapsort function. Then print collection and sorted array.
 
 		MaxBinHeap mbh = new MaxBinHeap();
-		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9 };
+		double[] collection = new double[] { 3, 8, 2, 1, 7, 4, 6, 5,9,0};
 		// TODO: undo this comment:
 		double[] sorted = mbh.sort(collection);
 		printSortCollection(collection);
