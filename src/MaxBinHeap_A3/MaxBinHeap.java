@@ -64,7 +64,7 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void build(double[] elements) {
 		this.clear();
-		// TODO HOW DO DEAL WITH DUPLICATES
+		// TODO HOW DO DEAL WITH DUPLICATES - doesnt matter
 		this.size += elements.length;
 		// System.out.println("size: "+size);
 		// Put all elements in array in arbitrary order
@@ -103,17 +103,12 @@ public class MaxBinHeap implements Heap_Interface {
 
 	@Override
 	public double[] sort(double[] elements) {
-		// TODO Auto-generated method stub
 		this.build(elements);
-		//MaxBinHeap mbh = new MaxBinHeap();
-		//mbh.build(elements);
 		double[] sorted = new double[this.size()];
 		for (int i = this.size() - 1; i >= 0; i--) {
 			sorted[i] = this.getMax();
-			//System.out.println("* " + sorted[i]);
 			this.delMax();
 		}
-		//System.out.println("sorted:");
 		return sorted;
 	}
 
