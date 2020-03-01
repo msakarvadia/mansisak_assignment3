@@ -31,6 +31,13 @@ public class MaxBinHeap_Playground {
 		printSortCollection(new double[] {3,5,7,1,9,-1,4,-600.0,8});
 		sorted = mbh.sort(new double[] {3,5,7,1,9,-1,4,-600.0,8});
 		printArray(sorted);
+		mbh.clear();
+		printHeap(mbh.getHeap(), mbh.size());
+		System.out.println("Size of heap: "+mbh.size());
+		
+		mbh.getMax();
+		mbh.delMax();
+		
 		
 		
 		
