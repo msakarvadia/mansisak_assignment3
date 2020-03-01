@@ -3,9 +3,40 @@ package MaxBinHeap_A3;
 public class MaxBinHeap_Playground {
 	public static void main(String[] args) {
 		// Add more tests as methods and call them here!!
-		TestBuild();
-		System.out.println();		
-		TestSort();
+		MaxBinHeap mbh = new MaxBinHeap();
+		double[] collection = new double[] {3,5,7,1,9,34,-1,4};
+		mbh.build(collection);
+		printHeap(mbh.getHeap(), mbh.size());
+		System.out.println("Size of heap: "+mbh.size());
+		System.out.println("Max of heap: "+ mbh.getMax());
+		System.out.println("deleted max");
+		mbh.delMax();
+		printHeap(mbh.getHeap(), mbh.size());
+		printSortCollection(new double[] {3,5,7,1,9,-1,4});
+		double[] sorted = mbh.sort(new double[] {3,5,7,1,9,-1,4});
+		printArray(sorted);
+		mbh.build(new double[] {3,5,1,9,-1,4,7});
+		printHeap(mbh.getHeap(), mbh.size());
+		System.out.println("Size of heap: "+mbh.size());
+		System.out.println("inserting 1300.0, -600.0, 5.0");
+		mbh.insert(1300.0);
+		mbh.insert(-600.0);
+		mbh.insert(8.0);
+		printHeap(mbh.getHeap(), mbh.size());
+		System.out.println("Size of heap: "+mbh.size());
+		System.out.println("deleted max");
+		mbh.delMax();
+		printHeap(mbh.getHeap(), mbh.size());
+		
+		printSortCollection(new double[] {3,5,7,1,9,-1,4,-600.0,8});
+		sorted = mbh.sort(new double[] {3,5,7,1,9,-1,4,-600.0,8});
+		printArray(sorted);
+		
+		
+		
+		//TestBuild();
+		//System.out.println();		
+		//TestSort();
 	}
 
 	public static void TestBuild() {

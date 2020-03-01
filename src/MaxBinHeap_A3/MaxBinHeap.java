@@ -24,7 +24,6 @@ public class MaxBinHeap implements Heap_Interface {
 
 	@Override
 	public void insert(double element) {
-		// TODO Auto-generated method stub
 		this.array[size + 1] = element;
 		size++;
 		for (int i = size / 2; i > 0; i--) {
@@ -47,6 +46,9 @@ public class MaxBinHeap implements Heap_Interface {
 
 	@Override
 	public double getMax() {
+		if(this.size()==0) {
+			return Double.NaN;
+		}
 		return this.array[1];
 	}
 
@@ -64,7 +66,6 @@ public class MaxBinHeap implements Heap_Interface {
 	@Override
 	public void build(double[] elements) {
 		this.clear();
-		// TODO HOW DO DEAL WITH DUPLICATES - doesnt matter
 		this.size += elements.length;
 		// System.out.println("size: "+size);
 		// Put all elements in array in arbitrary order
@@ -84,7 +85,6 @@ public class MaxBinHeap implements Heap_Interface {
 		int left_child = i * 2;
 		int right_child = i * 2 + 1;
 		int largest;
-		//CHECK STUFF for duplicates - parents greater than or equal too child
 		if (left_child <= this.size & elements[left_child] > elements[i]) {
 			largest = left_child;
 		} else {
