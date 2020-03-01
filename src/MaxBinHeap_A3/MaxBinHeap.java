@@ -70,7 +70,9 @@ public class MaxBinHeap implements Heap_Interface {
 		// System.out.println("size: "+size);
 		// Put all elements in array in arbitrary order
 		for (int i = 1; i < size + 1; i++) {
+			if(elements[i-1] != Double.NaN) {
 			this.array[i] = elements[i - 1];
+			}
 		}
 
 		// Bubbled down for every element
